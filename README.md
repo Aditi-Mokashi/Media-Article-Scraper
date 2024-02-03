@@ -62,7 +62,7 @@
 
 ## Configuration
 
-- **config.json**: This file contains the input configuration for the script i.e. URLs of the news artciles.
+- **config.json**: This file contains the input configuration for the script i.e. URLs of the news articles.
 
 
 ## Author
