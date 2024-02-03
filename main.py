@@ -1,10 +1,10 @@
 import tqdm
-import pandas as pd
 import timeit
-
-from utils import read_config, domain_handler, news_scrapers, data_frame_utils, logger
 import warnings
 warnings.filterwarnings('ignore')
+import pandas as pd
+
+from utils import read_config, domain_handler, news_scrapers, data_frame_utils, logger
 
 def main():
     try:
