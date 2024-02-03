@@ -6,6 +6,7 @@ import pandas as pd
 
 from utils import read_config, domain_handler, news_scrapers, data_frame_utils, logger
 
+
 def main():
     try:
         start_time = timeit.default_timer()
