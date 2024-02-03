@@ -1,5 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+from requests.exceptions import HTTPError
+
+from utils import logger
+
 
 def cnn(url) -> dict:
     """
@@ -11,8 +15,8 @@ def cnn(url) -> dict:
     Returns:
         dict: dictionary containing URL of article, headline, short description and article content
     """
-    response = requests.get(url)
-    if response.status_code == 200:
+    try:
+        response = requests.get(url)
         soup = BeautifulSoup(response.content, "html.parser")
         article = [p.text.strip().replace("\n", " ").replace("  ", "") for p in list(soup.select(".article__content"))]
         article = " ".join(article)
@@ -24,6 +28,10 @@ def cnn(url) -> dict:
         }
 
         return news
+    except HTTPError as e:
+        logger.log_message(message=f"Error in while fetching CNN URL: {e.args}", level=40)
+    except Exception as e:
+        logger.log_message(message=f"Error in CNN: {e.args}", level=40)
 
 def news18(url: str) -> dict:
     """
@@ -35,8 +43,8 @@ def news18(url: str) -> dict:
     Returns:
         dict: dictionary containing URL of article, headline, short description and article content
     """
-    response = requests.get(url=url)
-    if response.status_code == 200:
+    try:
+        response = requests.get(url=url)
         soup = BeautifulSoup(response.content, "html.parser")
         article = [news.text.strip().replace("\n", " ") for news in list(soup.select("article > div > p"))]
         article = " ".join(article)
@@ -47,5 +55,9 @@ def news18(url: str) -> dict:
             'short_description': soup.find("h2").text,
             'article': article
         }
+    except HTTPError as e:
+        logger.log_message(message=f"Error in while fetching news18 URL: {e.args}", level=40)
+    except Exception as e:
+        logger.log_message(message=f"Error in news18: {e.args}", level=40)
 
-        return news
+    return news
