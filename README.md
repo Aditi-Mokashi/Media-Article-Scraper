@@ -14,6 +14,9 @@
 - Python 3.x
 - Required Python libraries (install via `pip install -r requirements.txt`):
   - `tqdm`
+  - `pandas`
+  - `requests`
+  - `beautifulsoup4`
 
 
 ## Installation
