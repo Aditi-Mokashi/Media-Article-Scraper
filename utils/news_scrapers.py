@@ -1,7 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
 
-def cnn(url):
+def cnn(url) -> dict:
+    """
+    extract articles for cnn news website
+
+    Args:
+        url (str): URL of the article
+
+    Returns:
+        dict: dictionary containing URL of article, headline, short description and article content
+    """
     response = requests.get(url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, "html.parser")
@@ -16,9 +25,16 @@ def cnn(url):
 
         return news
 
-def news18(url: str):
-    news = {}
-    
+def news18(url: str) -> dict:
+    """
+    extract articles for news18 news website
+
+    Args:
+        url (str): URL of the article
+
+    Returns:
+        dict: dictionary containing URL of article, headline, short description and article content
+    """
     response = requests.get(url=url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, "html.parser")
