@@ -22,7 +22,7 @@ def news18(url: str):
     response = requests.get(url=url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, "html.parser")
-        article = [news.txt for news in list(soup.select("article > div > p"))]
+        article = [news.txt.strip().replace("\n", " ") for news in list(soup.select("article > div > p"))]
         article = " ".join(article)
 
         news = {
