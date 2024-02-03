@@ -30,7 +30,7 @@
 2. Navigate to the project directory:
 
    ```bash
-   cd Media-News-Scraper
+   cd Media-News-Scraper-main
    ```
 3. Setup virtual environment:
    ```bash
