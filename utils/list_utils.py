@@ -2,7 +2,7 @@ import json
 
 from utils import logger
 
-def convert_df_to_txt(news_list):
+def convert_to_txt(news_list):
     """
     converts input dataframe to csv
 

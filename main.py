@@ -2,9 +2,8 @@ import tqdm
 import timeit
 import warnings
 warnings.filterwarnings('ignore')
-import pandas as pd
 
-from utils import read_config, domain_handler, news_scrapers, data_frame_utils, logger
+from utils import list_utils, read_config, domain_handler, news_scrapers, logger
 
 
 def main():
@@ -29,7 +28,7 @@ def main():
             news_list.append(media_function(url))
             logger.log_message(message=f"DONE: Scraped data for {media_name}", level=20)
         
-        data_frame_utils.convert_df_to_txt(news_list)
+        list_utils.convert_to_txt(news_list)
         elapsed_time = timeit.default_timer() - start_time
         logger.log_message(message=f"DONE: Scraping completed", level=20)
         logger.log_message(message=f"Elapsed time: {elapsed_time}\n", level=20)

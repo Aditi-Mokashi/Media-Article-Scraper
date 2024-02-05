@@ -1,4 +1,5 @@
 *.csv
+*.txt
 *.log
 *.ipynb
 __pycache__/
