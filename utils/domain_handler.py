@@ -13,9 +13,15 @@ def get_media_name(url: str) -> str:
     """
     try:
         # fetching string till media name e.g. https://www.news18
-        media_name_with_prefix = url[:url.find(".co")]
+        if url.find(".co") == -1:
+            media_name_with_prefix = url[:url.find(".in")]
+        else:
+            media_name_with_prefix = url[:url.find(".co")]
         # fetching only media name i.e. string after last (.)
-        media_name = media_name_with_prefix[media_name_with_prefix.rindex(".")+1:]
+        if media_name_with_prefix.find(".") != -1: 
+            media_name = media_name_with_prefix[media_name_with_prefix.rindex(".")+1:]
+        else:
+            media_name = media_name_with_prefix.removeprefix("https://")
         return media_name
     except Exception as e:
         logger.log_message(

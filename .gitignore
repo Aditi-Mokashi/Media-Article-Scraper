@@ -1,5 +1,5 @@
 *.csv
 *.log
 *.ipynb
-MediaNewsScraper/
 __pycache__/
+venv/

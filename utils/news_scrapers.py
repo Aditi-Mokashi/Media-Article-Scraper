@@ -22,8 +22,10 @@ def cnn(url) -> dict:
         article = " ".join(article)
         news = {
             'url': url,
+            'media_name': 'CNN',
             'headline': soup.find("h1").text.strip().replace("\n",""),
-            'short_description': soup.find("span", attrs={'class':'inline-placeholder','data-editable':'metaCaption'}).text,
+            'short_description': soup.find(
+                "span", attrs={'class':'inline-placeholder','data-editable':'metaCaption'}).text,
             'article': article
         }
 
@@ -46,11 +48,13 @@ def news18(url: str) -> dict:
     try:
         response = requests.get(url=url)
         soup = BeautifulSoup(response.content, "html.parser")
-        article = [news.text.strip().replace("\n", " ") for news in list(soup.select("article > div > p"))]
+        article = [news.text.strip().replace("\n", " ") 
+                   for news in list(soup.select("article > div > p"))]
         article = " ".join(article)
 
         news = {
             'url': url,
+            'media_name': "News18",
             'headline': soup.find("h1").text,
             'short_description': soup.find("h2").text,
             'article': article

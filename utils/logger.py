@@ -9,7 +9,7 @@ def log_message(message: str, level: int):
         message (str): message to log
         level (int): severity level (debug=10, info=20, warning=30, error=40, critical=50)
     """
-    logging.basicConfig(filename="logger.log",
+    logging.basicConfig(filename="scraper.log",
                         format="%(asctime)s - %(levelname)s - %(message)s",
                         level=logging.INFO)
     

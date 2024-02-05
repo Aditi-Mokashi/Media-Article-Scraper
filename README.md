@@ -1,4 +1,4 @@
-# Media-News
+# Media-Article-Scraper
 
 ## List of contents
 
@@ -23,13 +23,13 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Aditi-Mokashi/Media-News-Scraper.git
+   git clone https://github.com/Aditi-Mokashi/Media-Article-Scraper.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd Media-News-Scraper-main
+   cd Media-Article-Scraper-main
    ```
 3. Setup virtual environment:
    ```bash
@@ -61,7 +61,7 @@
 
 ## Configuration
 
-- **config.json**: This file contains the input configuration for the script i.e. URLs of the news articles.
+- **config.json**: This file contains the input configuration for the script i.e. URLs of the news artciles.
 
 
 ## Author
