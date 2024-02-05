@@ -56,7 +56,7 @@
    python main.py
    ```
 
-3. The extracted information will be stored in `news.csv` file in the project directory.
+3. The extracted information will be stored in `news.txt` file in the project directory.
 
 
 ## Configuration
